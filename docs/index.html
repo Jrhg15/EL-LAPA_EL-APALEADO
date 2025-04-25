@@ -203,25 +203,41 @@
     <span id="contador">0</span>€ para la virginidad del VBSE
   </div>
 
- <!-- Script para el contador -->
-  <script>
-    let contador = 0;
+ <script>
+  const LIMITE = 60;
+  let contador = parseInt(localStorage.getItem('contador')) || 0;
 
-    function aumentarContador() {
+  function actualizarVisual() {
+    document.getElementById('contador').textContent = contador;
+  }
+
+  function aumentarContador() {
+    if (contador < LIMITE) {
       contador++;
-      document.getElementById('contador').textContent = contador;
+      localStorage.setItem('contador', contador);
+      actualizarVisual();
+
+      if (contador === LIMITE) {
+        alert("¡Al Querubín le pagan el postre!");
+        document.querySelector('.contador').innerHTML = "🎉 ¡Al Querubín le pagan el postre! 🎉";
+        
+        // Reiniciar después del mensaje
+        setTimeout(() => {
+          contador = 0;
+          localStorage.setItem('contador', contador);
+          document.querySelector('.contador').innerHTML = '<span id="contador">0</span>';
+        }, 1500); // Espera 1.5 segundos para que se vea el mensaje
+      }
     }
+  }
 
-    // Aumentar contador con cada clic en el contador
-    document.querySelector('.contador').addEventListener('click', aumentarContador);
+  // Mostrar el valor actual al cargar
+  actualizarVisual();
 
-    setInterval(actualizarContador, 1000);
+  // Aumentar contador con cada clic
+  document.querySelector('.contador').addEventListener('click', aumentarContador);
+</script>
 
-    function actualizarContador() {
-      // Aquí puedes definir el comportamiento si quieres que se aumente de alguna otra manera
-      // He dejado esto como referencia si se necesita un comportamiento adicional
-    }
- 
   </script>
   <!-- Script para cambiar engacahr cada mote del lapa con una cancion -->
   <script>
