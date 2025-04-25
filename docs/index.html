@@ -212,31 +212,30 @@
   }
 
   function aumentarContador() {
-    if (contador < LIMITE) {
-      contador++;
+    contador++;
+
+    if (contador >= LIMITE) {
+      alert("¡Al Querubín le pagan el postre!");
+      document.querySelector('.contador').innerHTML = "🎉 ¡Al Querubín le pagan el postre! 🎉";
+
+      setTimeout(() => {
+        contador = 0;
+        localStorage.setItem('contador', contador);
+        document.querySelector('.contador').innerHTML = '<span id="contador">0</span>';
+      }, 1500);
+    } else {
       localStorage.setItem('contador', contador);
       actualizarVisual();
-
-      if (contador === LIMITE) {
-        alert("¡Al Querubín le pagan el postre!");
-        document.querySelector('.contador').innerHTML = "🎉 ¡Al Querubín le pagan el postre! 🎉";
-        
-        // Reiniciar después del mensaje
-        setTimeout(() => {
-          contador = 0;
-          localStorage.setItem('contador', contador);
-          document.querySelector('.contador').innerHTML = '<span id="contador">0</span>';
-        }, 1500); // Espera 1.5 segundos para que se vea el mensaje
-      }
     }
   }
 
-  // Mostrar el valor actual al cargar
+  // Mostrar el valor guardado al cargar
   actualizarVisual();
 
-  // Aumentar contador con cada clic
+  // Detectar clic para aumentar
   document.querySelector('.contador').addEventListener('click', aumentarContador);
 </script>
+
 
   </script>
   <!-- Script para cambiar engacahr cada mote del lapa con una cancion -->
