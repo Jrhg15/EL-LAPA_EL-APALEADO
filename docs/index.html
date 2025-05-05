@@ -11,6 +11,7 @@
       color: #f2f2f2;
       text-align: center;
       padding: 50px;
+      overflow-x: hidden;
     }
 
     h1 {
@@ -31,8 +32,8 @@
     }
 
     img {
-      width: 80%; /* Cambié para mejorar la visibilidad y que no esté tan pixelada */
-      max-width: 800px; /* Limito el tamaño máximo para que no se estire demasiado */
+      width: 80%;
+      max-width: 800px;
       border-radius: 10px;
       box-shadow: 0 0 10px #ff4747;
       margin: 20px;
@@ -73,8 +74,8 @@
       top: 0;
       left: 0;
       font-size: 90px;
-      color: rgba(255, 255, 0, 0.75); /* Color amarillo brillante */
-      z-index: 0;
+      color: rgba(255, 255, 0, 0.85); /* Aumentada opacidad */
+      z-index: 10; /* Más alto para asegurar visibilidad */
       pointer-events: none;
       user-select: none;
       width: 100%;
@@ -88,8 +89,8 @@
       bottom: 10%;
       left: 0;
       font-size: 50px;
-      color: rgba(255, 255, 255, 0.5);
-      z-index: 1;
+      color: rgba(255, 255, 255, 0.7); /* Más visible */
+      z-index: 9;
       pointer-events: none;
       user-select: none;
       width: 100%;
@@ -124,7 +125,7 @@
       background-color: rgba(0, 0, 0, 0.7);
       padding: 10px;
       border-radius: 5px;
-      z-index: 2;
+      z-index: 20;
     }
 
     .mapa-description {
@@ -159,6 +160,9 @@
 
   <!-- Marcas de fondo adicionales -->
   <div class="marca-text">Gema me hacías • Habibi Lopez • Rosi no muerdas • RIP (Miguel de Indorama 08-03-2022) • Llanitascaxondasdotcom</div>
+
+</body>
+
 
   <h1>Samuel Morillo</h1>
   <h2>El Lapa El Apaleado</h2> 
